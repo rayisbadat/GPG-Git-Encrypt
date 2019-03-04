@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#gpg -aco -
+#gpg  --sign --encrypt --armor --symetric
+gpg  --sign --encrypt --armor --recipient $GIT_ENCRYPT_RECIPIENT --output - 2> /dev/null
+

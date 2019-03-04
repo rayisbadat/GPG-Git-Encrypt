@@ -1,0 +1,28 @@
+The gpg based scripts are taking from https://gist.github.com/shadowhand/873637
+but they used open ssl.
+
+
+Steps
+-----
+* Create `~/.config/gitencrypt` and `cd ~/.config/gitencrypt`
+* Copy these files there
+* Add `GIT_ENCRYPT_RECIPIENT` to your shells environment
+* Make sure gpg is configured (good luck)
+
+* in $PROJECT_REPO/.git/config add the following lines ::
+    
+    [filter "gpg"]
+        smudge = ~/.config/gitencrypt/smudge_filter_gpg
+        clean = ~/.config/gitencrypt/clean_filter_gpg
+    [diff "gpg"]
+        textconv = ~/.config/gitencrypt/diff_filter_gpg
+    
+
+* In $PROJECT_REPO/.gitattributes add ::
+
+    filter=gpg diff=gpg
+    [merge]
+        renormalize=true
+
+* git init, git add, git commit 
+    * Do --verbose on the add to make sure everythign is setup right

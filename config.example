@@ -1,0 +1,5 @@
+[filter "gpg"]
+    smudge = ~/.config/gitencrypt/smudge_filter_gpg
+    clean = ~/.config/gitencrypt/clean_filter_gpg
+[diff "gpg"]
+    textconv = ~/.config/gitencrypt/diff_filter_gpg
